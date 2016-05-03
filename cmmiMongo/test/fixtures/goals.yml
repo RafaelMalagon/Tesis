@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  n_processArea: 1
+  t_name: MyString
+  t_description: MyString
+  t_type: MyString
+
+two:
+  n_processArea: 1
+  t_name: MyString
+  t_description: MyString
+  t_type: MyString

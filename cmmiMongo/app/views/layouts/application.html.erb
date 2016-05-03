@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CmmiMongo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300,900' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<HEADER>
+	<nav class="be-red white large-padding">
+		<ul class="no-list row center-xs middle-xs">
+			<li class="col-md">
+				<h1 class="no-margin" id="logo">CMMI-Dev</h1>
+			</li> 
+			<li class="col-md">
+				<%= link_to "Inicio  ", root_path %>
+			</li>
+			<li class="col-md">
+				<%= link_to "Compañia  ", 'companies#index' %>
+			</li>
+			<li class="col-md">
+				<%= link_to "Proyecto  ", 'projects#index' %>
+			</li>
+			<li class="col-md">
+				<%= link_to "Practica  ", 'practices#index' %>
+			</li>
+			<li class="col-md">
+				<%= link_to "Tarea  ", 'steps#index' %>
+			</li>
+			<li class="col-md">
+				<div id="user_nav">
+				  <% if user_signed_in? %>
+				    Sesión como: <%= current_user.email %>.				     
+				     Sino?
+				    <%= link_to "Cerrar Sesión", destroy_user_session_path %>
+				  <% else %>
+				    <%= link_to "Crear Sesión", new_user_registration_path %> o
+				    <%= link_to "iniciar Sesión", new_user_session_path %>
+				  <% end %>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</HEADER>
+
+<%= yield %>
+<footer>
+    <p>Rafael Malagon 20081020053.
+    Diego Ortiz 20081020068
+    Edwin Paez 20081020072
+    </p>
+  </footer>
+</body>
+</html>

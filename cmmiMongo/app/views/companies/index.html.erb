@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de empresas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre de la empresa</th>
+      <th>Ruta del logo</th>
+      <th>Eslogan de la empresa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.t_name %></td>
+        <td><%= company.t_logo %></td>
+        <td><%= company.t_slogan %></td>
+        <td><%= link_to 'Ver', company %></td>
+        <td><%= link_to 'Editar', edit_company_path(company) %></td>
+        <td><%= link_to 'Eliminar', company, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva empresa', new_company_path %>

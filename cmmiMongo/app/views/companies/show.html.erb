@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre de la empresa:</strong>
+  <%= @company.t_name %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @company.t_logo %>
+</p>
+
+<p>
+  <strong>Eslogan:</strong>
+  <%= @company.t_slogan %>
+</p>
+
+<%= link_to 'Editar', edit_company_path(@company) %> |
+<%= link_to 'Regresar', companies_path %>

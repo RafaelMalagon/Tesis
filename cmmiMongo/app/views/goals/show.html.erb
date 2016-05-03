@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>N processarea:</strong>
+  <%= @goal.n_processArea %>
+</p>
+
+<p>
+  <strong>T name:</strong>
+  <%= @goal.t_name %>
+</p>
+
+<p>
+  <strong>T description:</strong>
+  <%= @goal.t_description %>
+</p>
+
+<p>
+  <strong>T type:</strong>
+  <%= @goal.t_type %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

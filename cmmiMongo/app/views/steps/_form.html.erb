@@ -1,0 +1,41 @@
+<%= form_for(@step) do |f| %>
+  <% if @step.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
+
+      <ul>
+      <% @step.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Descripcion: <br>
+    <%= f.text_field :t_description %>
+  </div>
+  <div class="field">
+    Practica: <br>
+    <%= f.number_field :n_practice %>
+  </div>
+  <div class="field">
+    <%= f.label :n_yestStep %><br>
+    <%= f.number_field :n_yestStep %>
+  </div>
+  <div class="field">
+    <%= f.label :n_noStep %><br>
+    <%= f.number_field :n_noStep %>
+  </div>
+  <div class="field">
+    <%= f.label :t_typeStep %><br>
+    <%= f.text_field :t_typeStep %>
+  </div>
+  <div class="field">
+    Rol: <br>
+    <%= f.number_field :n_rol %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

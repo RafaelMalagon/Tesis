@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @practice.t_name %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @practice.t_description %>
+</p>
+
+<p>
+  <strong>Meta:</strong>
+  <%= @practice.n_goal %>
+</p>
+
+<%= link_to 'Editar', edit_practice_path(@practice) %> |
+<%= link_to 'Regresar', practices_path %>

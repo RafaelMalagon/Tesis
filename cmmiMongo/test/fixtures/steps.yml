@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  t_description: MyString
+  n_practice: 1
+  n_yestStep: 1
+  n_noStep: 1
+  t_typeStep: 
+  n_rol: 1
+
+two:
+  t_description: MyString
+  n_practice: 1
+  n_yestStep: 1
+  n_noStep: 1
+  t_typeStep: 
+  n_rol: 1

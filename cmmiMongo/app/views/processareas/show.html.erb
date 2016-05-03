@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>N level:</strong>
+  <%= @processarea.n_level %>
+</p>
+
+<p>
+  <strong>T name:</strong>
+  <%= @processarea.t_name %>
+</p>
+
+<p>
+  <strong>T description:</strong>
+  <%= @processarea.t_description %>
+</p>
+
+<%= link_to 'Edit', edit_processarea_path(@processarea) %> |
+<%= link_to 'Back', processareas_path %>

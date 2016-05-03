@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listas de practicas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Meta</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @practices.each do |practice| %>
+      <tr>
+        <td><%= practice.t_name %></td>
+        <td><%= practice.t_description %></td>
+        <td><%= practice.n_goal %></td>
+        <td><%= link_to 'Ver', practice %></td>
+        <td><%= link_to 'Editar', edit_practice_path(practice) %></td>
+        <td><%= link_to 'Eliminar', practice, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva practica', new_practice_path %>

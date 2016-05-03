@@ -1,0 +1,29 @@
+<%= form_for(@processarea) do |f| %>
+  <% if @processarea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processarea.errors.count, "error") %> prohibited this processarea from being saved:</h2>
+
+      <ul>
+      <% @processarea.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :n_level %><br>
+    <%= f.number_field :n_level %>
+  </div>
+  <div class="field">
+    <%= f.label :t_name %><br>
+    <%= f.text_field :t_name %>
+  </div>
+  <div class="field">
+    <%= f.label :t_description %><br>
+    <%= f.text_field :t_description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
