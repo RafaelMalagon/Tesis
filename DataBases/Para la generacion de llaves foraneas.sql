@@ -1,0 +1,1 @@
+rails generate migration add_user_id_to_roles user:references
