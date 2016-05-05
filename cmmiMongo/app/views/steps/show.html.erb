@@ -1,34 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box text-left">
+       <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descripcion</strong>
-  <%= @step.t_description %>
-</p>
+      <p>
+        <strong>Descripcion</strong>
+        <%= @step.t_description %>
+      </p>
 
-<p>
-  <strong>Numero de practica</strong>
-  <%= @step.n_practice %>
-</p>
+      <p>
+        <strong>Numero de practica</strong>
+        <%= @step.n_practice %>
+      </p>
 
-<p>
-  <strong>N yeststep:</strong>
-  <%= @step.n_yestStep %>
-</p>
+      <p>
+        <strong>N yeststep:</strong>
+        <%= @step.n_yestStep %>
+      </p>
 
-<p>
-  <strong>N nostep:</strong>
-  <%= @step.n_noStep %>
-</p>
+      <p>
+        <strong>N nostep:</strong>
+        <%= @step.n_noStep %>
+      </p>
 
-<p>
-  <strong>T typestep:</strong>
-  <%= @step.t_typeStep %>
-</p>
+      <p>
+        <strong>T typestep:</strong>
+        <%= @step.t_typeStep %>
+      </p>
 
-<p>
-  <strong>Rol</strong>
-  <%= @step.n_rol %>
-</p>
+      <p>
+        <strong>Rol</strong>
+        <%= @step.n_rol %>
+      </p>
+      <p>
+        <strong>Creado por </strong>
+        <%=  @step.user.email%>
+      </p>
 
-<%= link_to 'Editar', edit_step_path(@step) %> |
-<%= link_to 'Regresar', steps_path %>
+      <%= link_to 'Editar', edit_step_path(@step) %> |
+      <%= link_to 'Regresar', steps_path %>
+    </div>    
+  </div>
+</div>

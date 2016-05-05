@@ -24,7 +24,7 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(step_params)
+    @step = current_user.steps.new(step_params)
 
     respond_to do |format|
       if @step.save

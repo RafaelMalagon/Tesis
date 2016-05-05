@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428234434) do
+ActiveRecord::Schema.define(version: 20160505035548) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "t_name",     limit: 255
@@ -69,12 +69,16 @@ ActiveRecord::Schema.define(version: 20160428234434) do
     t.integer "n_noStep",      limit: 4
     t.binary  "t_typeStep",    limit: 50
     t.integer "n_rol",         limit: 4
+    t.integer "user_id",       limit: 4
+    t.integer "practice_id",   limit: 4
   end
 
   add_index "steps", ["n_noStep"], name: "n_noStep", using: :btree
   add_index "steps", ["n_practice"], name: "n_practice", using: :btree
   add_index "steps", ["n_rol"], name: "n_rol", using: :btree
   add_index "steps", ["n_yestStep"], name: "n_yestStep", using: :btree
+  add_index "steps", ["practice_id"], name: "index_steps_on_practice_id", using: :btree
+  add_index "steps", ["user_id"], name: "index_steps_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -92,10 +96,13 @@ ActiveRecord::Schema.define(version: 20160428234434) do
     t.integer  "role",                   limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-    t.integer "roles_id" 
+    t.integer  "roles_id",               limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["roles_id"], name: "index_users_on_roles_id", using: :btree
 
+  add_foreign_key "steps", "practices"
+  add_foreign_key "steps", "users"
 end

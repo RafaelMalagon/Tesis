@@ -1,37 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="row center-xs">
+  <div class="col-xs-8 col-md-6">
+    <div class="box text-left">
+        <p id="notice"><%= notice %></p>
 
-<h1>Lista de pasos</h1>
+        <h1>Lista de pasos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Descripción</th>
-      <th>Practica</th>
-      <th>N yeststep</th>
-      <th>N nostep</th>
-      <th>Tipo de paso</th>
-      <th>Numero de rol</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Practica</th>
+              <th>N yeststep</th>
+              <th>N nostep</th>
+              <th>Tipo de paso</th>
+              <th>Numero de rol</th>
+              <th>Creado por</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @steps.each do |step| %>
-      <tr>
-        <td><%= step.t_description %></td>
-        <td><%= step.n_practice %></td>
-        <td><%= step.n_yestStep %></td>
-        <td><%= step.n_noStep %></td>
-        <td><%= step.t_typeStep %></td>
-        <td><%= step.n_rol %></td>
-        <td><%= link_to 'Ver ', step %></td>
-        <td><%= link_to 'Editar', edit_step_path(step) %></td>
-        <td><%= link_to 'Eliminar ', step, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @steps.each do |step| %>
+              <tr>
+                <td><%= step.t_description %></td>
+                <td><%= step.n_practice %></td>
+                <td><%= step.n_yestStep %></td>
+                <td><%= step.n_noStep %></td>
+                <td><%= step.t_typeStep %></td>
+                <td><%= step.n_rol %></td>
+                <td><%= step.user.email%></td>
+                <td><%= link_to 'Ver ', step %></td>
+                <td><%= link_to 'Editar', edit_step_path(step) %></td>
+                <td><%= link_to 'Eliminar ', step, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-<br>
+        <br>
 
-<%= link_to 'Nuevo paso', new_step_path %>
+        <%= link_to 'Nuevo paso', new_step_path %>
+   </div>    
+  </div>
+</div>
