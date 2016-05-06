@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505035548) do
+ActiveRecord::Schema.define(version: 20160506175330) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "t_name",     limit: 255
@@ -22,13 +22,16 @@ ActiveRecord::Schema.define(version: 20160505035548) do
   end
 
   create_table "goals", force: :cascade do |t|
-    t.integer  "n_processArea", limit: 4
-    t.string   "t_name",        limit: 255
-    t.string   "t_description", limit: 255
-    t.string   "t_type",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "n_processArea",  limit: 4
+    t.string   "t_name",         limit: 255
+    t.string   "t_description",  limit: 255
+    t.string   "t_type",         limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "processarea_id", limit: 4
   end
+
+  add_index "goals", ["processarea_id"], name: "index_goals_on_processarea_id", using: :btree
 
   create_table "levels", force: :cascade do |t|
     t.string   "t_name",     limit: 255
@@ -42,7 +45,10 @@ ActiveRecord::Schema.define(version: 20160505035548) do
     t.integer  "n_goal",        limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "goal_id",       limit: 4
   end
+
+  add_index "practices", ["goal_id"], name: "index_practices_on_goal_id", using: :btree
 
   create_table "processareas", force: :cascade do |t|
     t.integer  "n_level",       limit: 4
@@ -50,15 +56,23 @@ ActiveRecord::Schema.define(version: 20160505035548) do
     t.string   "t_description", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "level_id",      limit: 4
   end
+
+  add_index "processareas", ["level_id"], name: "index_processareas_on_level_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "t_name",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "t_name",      limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "companie_id", limit: 4
+    t.integer  "company_id",  limit: 4
   end
 
-  create_table "roles", primary_key: "k_idRol", force: :cascade do |t|
+  add_index "projects", ["companie_id"], name: "index_projects_on_companie_id", using: :btree
+  add_index "projects", ["company_id"], name: "index_projects_on_company_id", using: :btree
+
+  create_table "roles" force: :cascade do |t|
     t.integer "t_roleName", limit: 8, null: false
   end
 
@@ -103,6 +117,11 @@ ActiveRecord::Schema.define(version: 20160505035548) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["roles_id"], name: "index_users_on_roles_id", using: :btree
 
+  add_foreign_key "goals", "processareas"
+  add_foreign_key "practices", "goals"
+  add_foreign_key "processareas", "levels"
+  add_foreign_key "projects", "companies"
   add_foreign_key "steps", "practices"
   add_foreign_key "steps", "users"
+  add_foreign_key "users", "roles"
 end
